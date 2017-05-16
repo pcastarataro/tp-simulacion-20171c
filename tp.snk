@@ -1,6 +1,8 @@
 [Subsistema nuevo]
 ;declaración de tables y qtables
 EDAD    	TABLE     M1,600,300,10   ;10 intervalos de 5 minutos, 1er. intervalo 10 minutos
+INTBAR      TABLE      S$MESAS,0,1000,10  ;10 intervalos de 1000 CLIENTES, 1er intervalo 0 CLIENTES
+
 MESAS	  	STORAGE 10000
 PROMOCION	STORAGE 2
 TIPO		FUNCTION RN1,D4
@@ -81,6 +83,13 @@ NOHAY		SELECT MIN	CAJA,1,X$TOTAL_CJ,,Q,
 ; SUBSISTEMA TIEMPO
 TIEMPO		GENERATE 	36001
 		TERMINATE 	1
+
+
+[CANT_BAR]
+;subsistema para contar los CLIENTES  que están DENTRO DEL BAR CADA 2 MINUTOS
+        GENERATE  120
+        TABULATE  AFUERA
+        TERMINATE
 
 
 <\F>
