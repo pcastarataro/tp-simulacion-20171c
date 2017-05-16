@@ -1,4 +1,6 @@
 [Subsistema nuevo]
+;declaración de tables y qtables
+EDAD    	TABLE     M1,600,300,10   ;10 intervalos de 5 minutos, 1er. intervalo 10 minutos
 MESAS	  	STORAGE 10000
 PROMOCION	STORAGE 2
 TIPO		FUNCTION RN1,D4
@@ -59,6 +61,7 @@ NOHAY		SELECT MIN	CAJA,1,X$TOTAL_CJ,,Q,
 		ADVANCE 	FN$MEDIA_CAJA,P$DESVIO
 		RELEASE 	P$CAJA
 		ADVANCE 	45,15	;SALIDA CAJA
+		TABULATE  EDAD             ;TIEMPO EN EL SISTEMA
 		TERMINATE
 
 
