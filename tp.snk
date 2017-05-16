@@ -1,9 +1,9 @@
 [Subsistema nuevo]
 ;declaración de tables y qtables
-EDAD    	TABLE     M1,600,300,10   ;10 intervalos de 5 minutos, 1er. intervalo 10 minutos
-INTBAR      TABLE      S$MESAS,0,1000,10  ;10 intervalos de 1000 CLIENTES, 1er intervalo 0 CLIENTES
-
-MESAS	  	STORAGE 10000
+EDAD    	TABLE     M1,600,300,10      ;10 intervalos de 5 minutos, 1er. intervalo 10 minutos
+INTBAR     TABLE     S$MESAS,0,1000,10  ;10 intervalos de 1000 CLIENTES, 1er intervalo 0 CLIENTES
+TPROMOCION  QTABLE     PROMOCION,0,10,6   ;6 intervalos de 10 SEGUNDOS,1er intervalo 0 CLIENTES
+MESAS	  	STORAGE 10000 
 PROMOCION	STORAGE 2
 TIPO		FUNCTION RN1,D4
 0,.25/.5,2/.75,3/1,4
@@ -88,7 +88,7 @@ TIEMPO		GENERATE 	36001
 [CANT_BAR]
 ;subsistema para contar los CLIENTES  que están DENTRO DEL BAR CADA 2 MINUTOS
         GENERATE  120
-        TABULATE  AFUERA
+        TABULATE  INTBAR
         TERMINATE
 
 
