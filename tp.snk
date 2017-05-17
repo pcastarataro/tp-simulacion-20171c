@@ -2,6 +2,7 @@
 ;declaración de tables y qtables
 EDAD    	TABLE     M1,600,300,10      ;10 intervalos de 5 minutos, 1er. intervalo 10 minutos
 INTBAR     TABLE     S$MESAS,0,1000,10  ;10 intervalos de 1000 CLIENTES, 1er intervalo 0 CLIENTES
+;TSUMCOL    TABLE     S$MESAS,0,10,10  ;10 intervalos de 10 CLIENTES, 1er intervalo 0 CLIENTES
 TPROMOCION  QTABLE     PROMOCION,0,10,6   ;6 intervalos de 10 SEGUNDOS,1er intervalo 0 CLIENTES
 MESAS	  	STORAGE 10000 
 PROMOCION	STORAGE 2
@@ -17,6 +18,7 @@ BIF_BAR	FUNCTION P$TIPO,D4
 1,50/2,350/3,800/4,400
 MAX_COLA	FUNCTION P$TIPO,D4
 1,3/2,5/3,9/4,4
+SUMCOLCAJAS VARIABLE Q1+Q2+Q3+Q4+Q5 
 		INITIAL 	X$TOTAL_CJ,3
 		INITIAL 	X$ARRIBO,90
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,11 +87,19 @@ TIEMPO		GENERATE 	36001
 		TERMINATE 	1
 
 
-[CANT_BAR]
-;subsistema para contar los CLIENTES  que están DENTRO DEL BAR CADA 2 MINUTOS
+[GENTE_COMIENDO]
+;subsistema para contar los CLIENTES  que están DENTRO DEL BAR COMIENDO CADA 2 MINUTOS
         GENERATE  120
         TABULATE  INTBAR
         TERMINATE
+
+
+[SUM_COLA_CAJAS]
+;subsistema para contar los CLIENTES  que están EN LAS COLAS DE LAS CAJAS, CADA 2 MINUTOS
+        GENERATE  120
+	   ASSIGN 	  SCCAJ,V$SUMCOLCAJAS
+        ;TABULATE  TSUMCOL
+	   TERMINATE
 
 
 <\F>
