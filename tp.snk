@@ -3,7 +3,7 @@
 EDAD    	TABLE     M1,600,300,10      ;10 intervalos de 5 minutos, 1er. intervalo 10 minutos
 INTBAR     TABLE     S$MESAS,0,1000,10  ;10 intervalos de 1000 CLIENTES, 1er intervalo 0 CLIENTES
 INTGOND    TABLE     S$GONDOLAS,0,5,10  ;10 intervalos de 5 CLIENTES, 1er intervalo 0 CLIENTES
-;ACA TENGO EL EEROR CON ELPARAMETRO    TSUMCOL    TABLE     SCCAJ,0,10,10  ;10 intervalos de 10 CLIENTES, 1er intervalo 0 CLIENTES
+TSUMCOL    TABLE     P$SCCAJ,0,10,10  ;10 intervalos de 10 CLIENTES, 1er intervalo 0 CLIENTES
 TPROMOCION  QTABLE     PROMOCION,0,10,6   ;6 intervalos de 10 SEGUNDOS,1er intervalo 0 CLIENTES
 MESAS	  	STORAGE 10000 
 GONDOLAS  	STORAGE 10000 
@@ -107,7 +107,7 @@ TIEMPO		GENERATE 	36001
 ;subsistema para contar los CLIENTES  que están EN LAS COLAS DE LAS CAJAS, CADA 2 MINUTOS, 
         GENERATE  120
 	   ASSIGN 	  SCCAJ,V$SUMCOLCAJAS
-        ;TABULATE  TSUMCOL
+        TABULATE  TSUMCOL
 	   TERMINATE
 
 
