@@ -1,0 +1,269 @@
+REPORTE SNAKE
+
+Información general
+
+      START_TIME         END_TIME     BLOCKS    FACILITIES    STORAGES
+               0            21600         64             3           3 
+
+Bloques no ejecutables
+ EDAD    	TABLE     M1,600,300,10      ;10 INTERVALOS DE 5 MINUTOS, 1ER. INTERVALO 10 MINUTOS
+INTBAR     TABLE     S$MESAS,0,1,10  ;10 INTERVALOS DE 1 CLIENTE, 1ER INTERVALO 0 CLIENTES
+INTGOND    TABLE     S$GONDOLAS,0,5,10  ;10 INTERVALOS DE 5 CLIENTES, 1ER INTERVALO 0 CLIENTES
+TSUMCOL    TABLE     P$SCCAJ,0,1,5  ;5 INTERVALOS DE 1 CAJA, 1ER INTERVALO 0 CAJAS
+TPROMOCION  QTABLE     PROMOCION,0,10,6   ;6 INTERVALOS DE 10 SEGUNDOS,1ER INTERVALO 0 CLIENTES
+MESAS	  	STORAGE 10000 
+GONDOLAS  	STORAGE 10000 
+PROMOCION	STORAGE 2
+TIPO		FUNCTION RN1,D4
+.20,1/.55,2/.7,3/1.,4
+POISSON 	FUNCTION RN8,C24 ;EXPONENCIAL NEGATIVA CON VALOR MEDIO IGUAL A 1
+0,0/.1,.104/.2,.222/.3,.355/.4,.509/.5,.69/.6,.915/.7,1.2/.75,1.38/.8,1.6/.84,1.83/.88,2.12/.9,2.3/.92,2.52/.94,2.81/.95,2.99/.96,3.2/.97,3.5/.98,3.9/.99,4.6/.995,5.3/.998,6.2/.999,7/.9998,8
+MEDIA_CAJA FUNCTION P$TIPO,D4
+1,40/2,60/3,120/4,90
+DESV_CAJA 	FUNCTION P$TIPO,D4
+1,20/2,40/3,60/4,60
+BIF_BAR	FUNCTION P$TIPO,D4
+1,50/2,350/3,800/4,400
+MAX_COLA	FUNCTION P$TIPO,D4
+1,3/2,5/3,9/4,4
+SUMCOLCAJAS VARIABLE Q1+Q2+Q3+Q4+Q5 
+		INITIAL 	X$TOTAL_CJ,2
+		INITIAL 	X$ARRIBO,90
+	      INITIAL     X$CONTAR_GOND,0
+CAJA_MIN	VARIABLE	RN5@2+1
+
+
+Bloques ejecutables
+
+  LINE         LOC  BLOCK_TYPE                               ENTRY_COUNT  CURRENT_COUNT  RETRY
+    91           1     generate     X$ARRIBO,POISSON                 239              0      0
+    92           2       assign     TIPO,FN$TIPO                     239              0      0
+    93           3      advance     45,30                            239              0      0
+    95           4     transfer     FN$BIF_BAR,PROMOCION             239              0      0
+    96           5     transfer     ,BAR                             104              0      0
+   100         bar      advance     90,30                            104              0      0
+   101           7        queue     CAJABAR                          104              0      0
+   102           8        seize     CAJABAR                          104              0      0
+   103           9       depart     CAJABAR                          104              0      0
+   104          10      advance     50,25                            104              0      0
+   105          11      release     CAJABAR                          104              0      0
+   106          12        enter     MESAS                            104              0      0
+   107          13      advance     900,450                          104              4      0
+   108          14        leave     MESAS                            100              0      0
+   109          15     transfer     ,PROMOCION                       100              0      0
+   113   promocion      advance     45,15                            235              1      0
+   114          17         test    lQ$PROMOCION,FN$MAX_COLA,COMPRA         234              0      0
+   115          18        queue     PROMOCION                        234              0      0
+   116          19        enter     PROMOCION                        234              0      0
+   117          20       depart     PROMOCION                        234              0      0
+   118          21      advance     60,15                            234              1      0
+   119          22        leave     PROMOCION                        233              0      0
+   120          23     transfer     ,COMPRA                          233              0      0
+   124      compra        enter     GONDOLAS                         233              0      0
+   125          25      advance     900,300                          233              7      0
+   126          26        leave     GONDOLAS                         226              0      0
+   127          27       select   nuCAJA,1,X$TOTAL_CJ,,,NOHAY         226              0      0
+   128          28     transfer     ,SIGUE                           179              0      0
+   129       nohay        count  minCAJA_MIN,1,X$TOTAL_CJ,,Q          47              0      0
+   130          30         test    gP$CAJA_MIN,1,MIN                  47              0      0
+   131          31       assign     CAJA,V$CAJA_MIN                   33              0      0
+   132          32     transfer     ,SIGUE                            33              0      0
+   133         min       select  minCAJA,1,X$TOTAL_CJ,,Q              14              0      0
+   134       sigue        queue     P$CAJA                           226              0      0
+   135          35        seize     P$CAJA                           226              0      0
+   136          36       depart     P$CAJA                           226              0      0
+   137          37       assign     DESVIO,FN$DESV_CAJA              226              0      0
+   138          38      advance     FN$MEDIA_CAJA,P$DESVIO           226              1      0
+   139          39      release     P$CAJA                           225              0      0
+   140          40      advance     45,15                            225              1      0
+   141          41     tabulate     EDAD                             224              0      0
+   142          42    terminate                                      224              0      0
+   146          43     generate     ,,,1                               1              0      0
+   147          44      advance     3600                               1              0      0
+   148          45    savevalue     CONTAR_GOND,1                      1              0      0
+   149          46      advance     3600                               1              0      0
+   150          47    savevalue     ARRIBOS,50                         1              0      0
+   151          48      advance     7200                               1              0      0
+   152          49    savevalue     ARRIBOS,70                         1              0      0
+   153          50    terminate                                        1              0      0
+   157      tiempo     generate     3600                               6              0      0
+   158          52    terminate     1                                  6              0      0
+   162          53     generate     120                              179              0      0
+   163          54     tabulate     INTBAR                           179              0      0
+   164          55    terminate                                      179              0      0
+   168          56     generate     120                              179              0      0
+   169          57       assign     SCCAJ,V$SUMCOLCAJAS              179              0      0
+   170          58     tabulate     TSUMCOL                          179              0      0
+   171          59    terminate                                      179              0      0
+   175          60     generate     120                              179              0      0
+   176          61       assign     FLAG,0                           179              0      0
+   177          62         test    eP$FLAG,X$CONTAR_GOND,FIN         179              0      0
+   178          63     tabulate     INTGOND                           30              0      0
+   179         fin    terminate                                      179              0      0
+
+Facilities
+
+ FACILITY          ENTRIES    UTIL.  AVE_TIME  AVAILABLE   OWNER   PEND   INTER   RETRY   DELAY
+              1        137    0,510    80,423          1      28      0       0       0       0
+              2         89    0,322    78,056          1       0      0       0       0       0
+        cajabar        104    0,256    53,087          1       0      0       0       0       0
+
+Queues
+
+ QUEUE             MAX      CONT.  ENTRIES ENTRIES(0)  AVE.CONT.   AVE.TIME    AVE.(-0)   RETRY
+              1      2         0       137      111       0,071      11,241      59,231       0
+              2      2         0        89       68       0,060      14,506      61,476       0
+        cajabar      1         0       104       99       0,006       1,346      28,000       0
+      promocion      1         0       234      222       0,010       0,927      18,083       0
+
+Storages
+
+ STORAGE           CAP.   REMAIN.   MIN.   MAX.  ENTRIES  AVL.   AVE.C.    UTIL.  RETRY   DELAY
+       gondolas   10000     9993       0     17      233     1    9,519    0,001      0       0
+          mesas   10000     9996       0      9      104     1    4,467    0,000      0       0
+      promocion       2        1       0      2      234     1    0,646    0,323      0       0
+
+Tables
+
+                edadTABLE            M1,600,300,10
+
+               MEDIA                         :       1659,737
+               DESVIACION ESTANDAR           :        605,380
+               CANTIDAD EN RETRY             :              0
+
+          INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE
+         0  -       600            0       0,000          0,000       100,000
+       601  -       900            8       3,571          3,571        96,429
+       901  -      1200           61      27,232         30,804        69,196
+      1201  -      1500           55      24,554         55,357        44,643
+      1501  -      1800           10       4,464         59,821        40,179
+      1801  -      2100           21       9,375         69,196        30,804
+      2101  -      2400           32      14,286         83,482        16,518
+      2401  -      2700           26      11,607         95,089         4,911
+      2701  -      3000           11       4,911        100,000        -0,000
+            Las frecuencias restantes (1) son todas cero.
+
+        CANTIDAD DE VALORES TABULADOS :           224
+        VALOR MAXIMO TABULADO         :      2938,000
+
+              intbarTABLE            S$MESAS,0,1,10
+
+               MEDIA                         :          4,475
+               DESVIACION ESTANDAR           :          1,580
+               CANTIDAD EN RETRY             :              0
+
+          INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE
+         0  -         0            2       1,117          1,117        98,883
+         1  -         1            1       0,559          1,676        98,324
+         2  -         2           15       8,380         10,056        89,944
+         3  -         3           31      17,318         27,374        72,626
+         4  -         4           42      23,464         50,838        49,162
+         5  -         5           41      22,905         73,743        26,257
+         6  -         6           31      17,318         91,061         8,939
+         7  -         7           11       6,145         97,207         2,793
+         8  -         8            4       2,235         99,441         0,559
+         9  -  Infinito            1       0,559        100,000         0,000
+
+        MEDIA OVERFLOW                :         9,000
+        DESVIACION ESTANDAR OVERFLOW  :         0,000
+
+        CANTIDAD DE VALORES TABULADOS :           179
+        VALOR MAXIMO TABULADO         :         9,000
+
+             intgondTABLE            S$GONDOLAS,0,5,10
+
+               MEDIA                         :          6,533
+               DESVIACION ESTANDAR           :          3,627
+               CANTIDAD EN RETRY             :              0
+
+          INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE
+         0  -         0            3      10,000         10,000        90,000
+         1  -         5            7      23,333         33,333        66,667
+         6  -        10           13      43,333         76,667        23,333
+        11  -        15            7      23,333        100,000         0,000
+            Las frecuencias restantes (6) son todas cero.
+
+        CANTIDAD DE VALORES TABULADOS :            30
+        VALOR MAXIMO TABULADO         :        12,000
+
+             tsumcolTABLE            P$SCCAJ,0,1,5
+
+               MEDIA                         :          0,106
+               DESVIACION ESTANDAR           :          0,417
+               CANTIDAD EN RETRY             :              0
+
+          INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE
+         0  -         0          166      92,737         92,737         7,263
+         1  -         1            8       4,469         97,207         2,793
+         2  -         2            4       2,235         99,441         0,559
+         3  -         3            1       0,559        100,000        -0,000
+            Las frecuencias restantes (1) son todas cero.
+
+        CANTIDAD DE VALORES TABULADOS :           179
+        VALOR MAXIMO TABULADO         :         3,000
+
+
+QTables
+
+          tpromocionTABLE            PROMOCION,0,10,6
+
+               MEDIA                         :          0,927
+               DESVIACION ESTANDAR           :          5,101
+               CANTIDAD EN RETRY             :              0
+
+          INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE
+         0  -         0          222      94,872         94,872         5,128
+         1  -        10            6       2,564         97,436         2,564
+        11  -        20            2       0,855         98,291         1,709
+        21  -        30            2       0,855         99,145         0,855
+        31  -        40            1       0,427         99,573         0,427
+        41  -  Infinito            1       0,427        100,000         0,000
+
+        MEDIA OVERFLOW                :        53,000
+        DESVIACION ESTANDAR OVERFLOW  :         0,000
+
+        CANTIDAD DE VALORES TABULADOS :           234
+        VALOR MAXIMO TABULADO         :        53,000
+
+
+Savevalues
+
+ SAVEVALUE               VALUE      RETRY
+    arribo                  90          0
+   arribos                  70          0
+contar_gond                   1          0
+  total_cj                   2          0
+
+
+Cadena de eventos corrientes (CEC)
+
+ CEC_XACT_NUMBER    PRI          M1       CURRENT       NEXT        PARAMETER        VALUE
+              21      0           0             0         53
+              30      0           0             0         56
+               7      0           0             0         60
+              20      0           0             0          1
+
+
+Cadena de eventos futuros (FEC)
+
+ FEC_XACT_NUMBER    PRI         BDT       CURRENT       NEXT        PARAMETER        VALUE
+              22      0       21606            40         41             tipo            1
+                                                                         caja            1
+                                                                       desvio           20
+              28      0       21614            38         39             tipo            1
+                                                                         caja            1
+                                                                       desvio           20
+              14      0       21640            16         17             tipo            4
+              27      0       21642            21         22             tipo            4
+              12      0       21703            25         26             tipo            2
+               9      0       21710            13         14             tipo            4
+              16      0       21904            13         14             tipo            4
+              15      0       21946            13         14             tipo            2
+              25      0       22123            25         26             tipo            3
+               4      0       22132            13         14             tipo            2
+               2      0       22148            25         26             tipo            4
+              19      0       22185            25         26             tipo            3
+              18      0       22215            25         26             tipo            1
+              11      0       22407            25         26             tipo            2
+              23      0       22662            25         26             tipo            2
+              17      0       25200             0         51
