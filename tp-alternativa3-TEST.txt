@@ -89,7 +89,8 @@ SUMCOLCAJAS VARIABLE Q1+Q2+Q3+Q4+Q5
 *
 * 
 *
-CAJA_RANDOM VARIABLE RN5@X$TOTAL_CJ + 1
+*CAJA_RANDOM VARIABLE RN5@X$TOTAL_CJ+1
+CAJA_RANDOM VARIABLE  1+RN2@2
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	  	GENERATE 	X$ARRIBO,POISSON 
