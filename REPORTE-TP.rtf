@@ -1,0 +1,270 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0\deflang11274\deflangfe11274{\fonttbl{\f0 Courier New;}{\f1\fcharset0 MS Sans Serif;}}
+\f0{\colortbl;\red128\green0\blue0;\red0\green0\blue128;\red0\green0\blue0;\red128\green0\blue128;}{\*\generator Wine Riched20 2.0.????;}\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf1\fs40\ul REPORTE SNAKE}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Informaci\'f3n general}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone       START_TIME         END_TIME     BLOCKS    FACILITIES    STORAGES}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                0            21600         61             4           3 }
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Bloques no ejecutables}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone  EDAD    }\tab {\cf3\fs20\ulnone TABLE     M1,600,300,10      ;10 INTERVALOS DE 5 MINUTOS, 1ER. INTERVALO 10 MINUTOS}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone INTBAR     TABLE     S$MESAS,0,1,10  ;10 INTERVALOS DE 1 CLIENTE, 1ER INTERVALO 0 CLIENTES}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone INTGOND    TABLE     S$GONDOLAS,0,5,10  ;10 INTERVALOS DE 5 CLIENTES, 1ER INTERVALO 0 CLIENTES}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone TSUMCOL    TABLE     P$SCCAJ,0,1,5  ;5 INTERVALOS DE 1 CAJA, 1ER INTERVALO 0 CAJAS}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone TPROMOCION  QTABLE     PROMOCION,0,10,6   ;6 INTERVALOS DE 10 SEGUNDOS,1ER INTERVALO 0 CLIENTES}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone MESAS}\tab {\cf3\fs20\ulnone   }\tab {\cf3\fs20\ulnone STORAGE 10000 }
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone GONDOLAS  }\tab {\cf3\fs20\ulnone STORAGE 10000 }
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone PROMOCION}\tab {\cf3\fs20\ulnone STORAGE 2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone TIPO}\tab \tab {\cf3\fs20\ulnone FUNCTION RN1,D4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone .20,1/.55,2/.7,3/1.,4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone POISSON }\tab {\cf3\fs20\ulnone FUNCTION RN8,C24 ;EXPONENCIAL NEGATIVA CON VALOR MEDIO IGUAL A 1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone 0,0/.1,.104/.2,.222/.3,.355/.4,.509/.5,.69/.6,.915/.7,1.2/.75,1.38/.8,1.6/.84,1.83/.88,2.12/.9,2.3/.92,2.52/.94,2.81/.95,2.99/.96,3.2/.97,3.5/.98,3.9/.99,4.6/.995,5.3/.998,6.2/.999,7/.9998,8}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone MEDIA_CAJA FUNCTION P$TIPO,D4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone 1,40/2,60/3,120/4,90}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone DESV_CAJA }\tab {\cf3\fs20\ulnone FUNCTION P$TIPO,D4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone 1,20/2,40/3,60/4,60}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone BIF_BAR}\tab {\cf3\fs20\ulnone FUNCTION P$TIPO,D4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone 1,50/2,350/3,800/4,400}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone MAX_COLA}\tab {\cf3\fs20\ulnone FUNCTION P$TIPO,D4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone 1,3/2,5/3,9/4,4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone SUMCOLCAJAS VARIABLE Q1+Q2+Q3+Q4+Q5 }
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0\tab \tab {\cf3\fs20\ulnone INITIAL }\tab {\cf3\fs20\ulnone X$TOTAL_CJ,3}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0\tab \tab {\cf3\fs20\ulnone INITIAL }\tab {\cf3\fs20\ulnone X$ARRIBO,90}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0\tab {\cf3\fs20\ulnone       INITIAL     X$CONTAR_GOND,0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Bloques ejecutables}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone   LINE         LOC  BLOCK_TYPE                               ENTRY_COUNT  CURRENT_COUNT  RETRY}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     89           1     generate     X$ARRIBO,POISSON                 239              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     90           2       assign     TIPO,FN$TIPO                     239              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     91           3      advance     45,30                            239              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     93           4     transfer     FN$BIF_BAR,PROMOCION             239              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     94           5     transfer     ,BAR                              94              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     97         bar      advance     90,30                             94              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     98           7        queue     CAJABAR                           94              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     99           8        seize     CAJABAR                           94              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    100           9       depart     CAJABAR                           94              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    101          10      advance     50,25                             94              1      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    102          11      release     CAJABAR                           93              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    103          12        enter     MESAS                             93              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    104          13      advance     900,450                           93              4      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    105          14        leave     MESAS                             89              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    106          15     transfer     ,PROMOCION                        89              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    109   promocion      advance     45,15                            234              1      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    110          17         test    lQ$PROMOCION,FN$MAX_COLA,COMPRA         233              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    111          18        queue     PROMOCION                        233              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    112          19        enter     PROMOCION                        233              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    113          20       depart     PROMOCION                        233              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    114          21      advance     60,15                            233              1      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    115          22        leave     PROMOCION                        232              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    116          23     transfer     ,COMPRA                          232              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    119      compra        enter     GONDOLAS                         232              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    120          25      advance     900,300                          232             11      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    121          26        leave     GONDOLAS                         221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    122          27       select   nuCAJA,1,X$TOTAL_CJ,,,NOHAY         221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    123       nohay       select  minCAJA,1,X$TOTAL_CJ,,Q             221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    124          29        queue     P$CAJA                           221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    125          30        seize     P$CAJA                           221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    126          31       depart     P$CAJA                           221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    127          32       assign     DESVIO,FN$DESV_CAJA              221              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    128          33      advance     FN$MEDIA_CAJA,P$DESVIO           221              1      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    129          34      release     P$CAJA                           220              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    130          35      advance     45,15                            220              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    131          36     tabulate     EDAD                             220              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    132          37    terminate                                      220              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    135          38     generate     ,,,1                               1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    136          39      advance     3600                               1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    137          40    savevalue     CONTAR_GOND,1                      1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    138          41      advance     3600                               1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    139          42    savevalue     TOTAL_CJ,5                         1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    140          43    savevalue     ARRIBOS,50                         1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    141          44      advance     7200                               1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    142          45    savevalue     TOTAL_CJ,4                         1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    143          46    savevalue     ARRIBOS,70                         1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    144          47    terminate                                        1              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    147      tiempo     generate     3600                               6              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    148          49    terminate     1                                  6              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    151          50     generate     120                              179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    152          51     tabulate     INTBAR                           179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    153          52    terminate                                      179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    156          53     generate     120                              179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    157          54       assign     SCCAJ,V$SUMCOLCAJAS              179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    158          55     tabulate     TSUMCOL                          179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    159          56    terminate                                      179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    162          57     generate     120                              179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    163          58       assign     FLAG,0                           179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    164          59         test    eP$FLAG,X$CONTAR_GOND,FIN         179              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    165          60     tabulate     INTGOND                           30              0      0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    166         fin    terminate                                      179              0      0}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Facilities}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone  FACILITY          ENTRIES    UTIL.  AVE_TIME  AVAILABLE   OWNER   PEND   INTER   RETRY   DELAY}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               1        176    0,603    73,955          1      24      0       0       0       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               2         44    0,148    72,705          1       0      0       0       0       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               3          1    0,005   111,000          1       0      0       0       0       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         cajabar         94    0,226    51,947          1      22      0       0       0       0}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Queues}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone  QUEUE             MAX      CONT.  ENTRIES ENTRIES(0)  AVE.CONT.   AVE.TIME    AVE.(-0)   RETRY}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               1      1         0       176       83       0,236      28,983      54,849       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               2      1         0        44       34       0,028      13,932      61,300       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               3      1         0         1        1       0,000       0,000       0,000       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         cajabar      1         0        94       86       0,009       2,096      24,625       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       promocion      1         0       233      222       0,013       1,197      25,364       0}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Storages}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone  STORAGE           CAP.   REMAIN.   MIN.   MAX.  ENTRIES  AVL.   AVE.C.    UTIL.  RETRY   DELAY}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone        gondolas   10000     9989       0     16      232     1    9,437    0,001      0       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone           mesas   10000     9996       0      9       93     1    3,953    0,000      0       0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       promocion       2        1       0      2      233     1    0,644    0,322      0       0}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Tables}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf4\fs20\ulnone                 edadTABLE            M1,600,300,10}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                MEDIA                         :       1597,155}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                DESVIACION ESTANDAR           :        562,544}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                CANTIDAD EN RETRY             :              0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone           INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          0  -       600            0       0,000          0,000       100,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone        601  -       900            6       2,727          2,727        97,273}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone        901  -      1200           66      30,000         32,727        67,273}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       1201  -      1500           63      28,636         61,364        38,636}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       1501  -      1800            6       2,727         64,091        35,909}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       1801  -      2100           24      10,909         75,000        25,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       2101  -      2400           24      10,909         85,909        14,091}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       2401  -      2700           27      12,273         98,182         1,818}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone       2701  -      3000            4       1,818        100,000        -0,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone             Las frecuencias restantes (1) son todas cero.}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         CANTIDAD DE VALORES TABULADOS :           220}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         VALOR MAXIMO TABULADO         :      2894,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf4\fs20\ulnone               intbarTABLE            S$MESAS,0,1,10}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                MEDIA                         :          3,927}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                DESVIACION ESTANDAR           :          1,709}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                CANTIDAD EN RETRY             :              0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone           INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          0  -         0            2       1,117          1,117        98,883}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          1  -         1            9       5,028          6,145        93,855}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          2  -         2           30      16,760         22,905        77,095}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          3  -         3           36      20,112         43,017        56,983}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          4  -         4           34      18,994         62,011        37,989}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          5  -         5           31      17,318         79,330        20,670}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          6  -         6           27      15,084         94,413         5,587}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          7  -         7            8       4,469         98,883         1,117}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          8  -         8            1       0,559         99,441         0,559}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          9  -  Infinito            1       0,559        100,000         0,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         MEDIA OVERFLOW                :         9,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         DESVIACION ESTANDAR OVERFLOW  :         0,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         CANTIDAD DE VALORES TABULADOS :           179}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         VALOR MAXIMO TABULADO         :         9,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf4\fs20\ulnone              intgondTABLE            S$GONDOLAS,0,5,10}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                MEDIA                         :          6,767}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                DESVIACION ESTANDAR           :          3,928}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                CANTIDAD EN RETRY             :              0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone           INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          0  -         0            3      10,000         10,000        90,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          1  -         5            7      23,333         33,333        66,667}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          6  -        10           12      40,000         73,333        26,667}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         11  -        15            8      26,667        100,000         0,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone             Las frecuencias restantes (6) son todas cero.}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         CANTIDAD DE VALORES TABULADOS :            30}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         VALOR MAXIMO TABULADO         :        13,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf4\fs20\ulnone              tsumcolTABLE            P$SCCAJ,0,1,5}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                MEDIA                         :          0,251}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                DESVIACION ESTANDAR           :          0,448}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                CANTIDAD EN RETRY             :              0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone           INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          0  -         0          135      75,419         75,419        24,581}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          1  -         1           43      24,022         99,441         0,559}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          2  -         2            1       0,559        100,000         0,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone             Las frecuencias restantes (2) son todas cero.}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         CANTIDAD DE VALORES TABULADOS :           179}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         VALOR MAXIMO TABULADO         :         2,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone QTables}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf4\fs20\ulnone           tpromocionTABLE            PROMOCION,0,10,6}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                MEDIA                         :          1,197}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                DESVIACION ESTANDAR           :          6,508}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                CANTIDAD EN RETRY             :              0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone           INTERVALO       FRECUENCIA           %     %ACUMULADO    %REMANENTE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          0  -         0          222      95,279         95,279         4,721}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone          1  -        10            3       1,288         96,567         3,433}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         11  -        20            3       1,288         97,854         2,146}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         21  -        30            2       0,858         98,712         1,288}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         31  -        40            1       0,429         99,142         0,858}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         41  -  Infinito            2       0,858        100,000         0,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         MEDIA OVERFLOW                :        55,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         DESVIACION ESTANDAR OVERFLOW  :         5,657}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         CANTIDAD DE VALORES TABULADOS :           233}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone         VALOR MAXIMO TABULADO         :        59,000}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Savevalues}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone  SAVEVALUE               VALUE      RETRY}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone     arribo                  90          0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone    arribos                  70          0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone contar_gond                   1          0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone   total_cj                   4          0}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Cadena de eventos corrientes (CEC)}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone  CEC_XACT_NUMBER    PRI          M1       CURRENT       NEXT        PARAMETER        VALUE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                5      0           0             0         50}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               23      0           0             0         53}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               10      0           0             0         57}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               14      0           0             0          1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\b\cf2\fs30\ulnone Cadena de eventos futuros (FEC)}
+\par\pard\qc\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf2\fs20\ulnone  FEC_XACT_NUMBER    PRI         BDT       CURRENT       NEXT        PARAMETER        VALUE}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               21      0       21603            16         17             tipo            1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               24      0       21614            33         34             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                                                                          caja            1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                                                                        desvio           40}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                3      0       21617            25         26             tipo            4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               22      0       21617            10         11             tipo            3}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               16      0       21650            21         22             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                4      0       21716            25         26             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               11      0       21742            13         14             tipo            3}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                2      0       21799            25         26             tipo            3}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               17      0       21816            25         26             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                8      0       21830            25         26             tipo            1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               27      0       21968            25         26             tipo            1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               19      0       21999            13         14             tipo            4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               25      0       22014            13         14             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               28      0       22074            25         26             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               18      0       22342            25         26             tipo            4}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                1      0       22490            13         14             tipo            3}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                6      0       22495            25         26             tipo            2}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               12      0       22681            25         26             tipo            3}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone                9      0       22687            25         26             tipo            1}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0{\cf3\fs20\ulnone               26      0       25200             0         48}
+\par\pard\sl-240\slmult1\li0\fi0\ri0\sa0\sb0\s-1\cfpat0\cbpat0} 
